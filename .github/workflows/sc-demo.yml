@@ -1,0 +1,17 @@
+name: Source Control Demo
+on: workflow_dispatch
+jobs:
+  build-WOFL:
+    runs-on: ubuntu-latest
+    steps:
+      - name: connection remote location
+        run: echo "connecting to matillion ETL..."
+      - name: connection established
+        run: echo "connection established"
+      - name: updating remote file
+        run: echo "updating remote file"
+      - name: update completed
+        run: echo "Update completed"
+        
+        
+      
