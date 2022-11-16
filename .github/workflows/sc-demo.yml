@@ -37,7 +37,7 @@ jobs:
         with:
           region: 'us-east-1'
           bucket: 'source-control-demo'
-          source: <<YOUR_LOCAL_SOURCE_FOLDER>>
-          target: <<YOUR_REMOTE_TARGET_FOLDER>
+          source: 'https://github.com/edunge/metl-sourcecontrol-demo'
+          target: 'test-folder'
     
       
