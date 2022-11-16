@@ -39,5 +39,12 @@ jobs:
           bucket: 'source-control-demo'
           source: 'https://github.com/edunge/metl-sourcecontrol-demo'
           target: 'test-folder'
-    
-      
+          
+  success:
+      needs:  deploy
+
+      runs-on: ubuntu-latest
+
+      steps:
+        - name: Show outcome
+          run: echo 'Changes successfully deployed to METL'
