@@ -63,7 +63,7 @@
         },
         {
           "to": "flow@variables.frosty_borg",
-          "from": "FROSTY_BORGE"
+          "from": "FROSTY_BORG"
         },
         {
           "to": "flow@variables.credentials_auth",
