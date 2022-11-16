@@ -36,7 +36,7 @@ jobs:
         uses: oneyedev/aws-deploy-s3@v2
         with:
           region: 'us-east-1'
-          bucket: <<source-control-demo>>
+          bucket: 'source-control-demo'
           source: <<YOUR_LOCAL_SOURCE_FOLDER>>
           target: <<YOUR_REMOTE_TARGET_FOLDER>
     
