@@ -29,14 +29,14 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: <<YOUR_S3_REGION>>
+          aws-region: <<US East (N. Virginia) us-east-1>>
       
       - name: Deploy changes to AWS S3
         id: aws-deploy-s3
         uses: oneyedev/aws-deploy-s3@v2
         with:
-          region: <<YOUR_S3_REGION>>
-          bucket: <<YOUR_S3_BUCKET>>
+          region: <<US East (N. Virginia) us-east-1>>
+          bucket: <<source-control-demo>>
           source: <<YOUR_LOCAL_SOURCE_FOLDER>>
           target: <<YOUR_REMOTE_TARGET_FOLDER>
     
