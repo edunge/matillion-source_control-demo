@@ -23,12 +23,8 @@ jobs:
             
       - name: New folder
         run: mkdir wofl
-        
-      - name: Move wofl files
-        run: mv **.json wofl
           
-
-      - name: create wofl files
+      - name: Generate wofl files
         run:  mv ./wofl/** **.wofl
         
 
