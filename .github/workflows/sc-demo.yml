@@ -14,7 +14,7 @@ jobs:
       - name: Checkout from repository
         uses: actions/checkout@v3
         
-      - name: Get changed files in the WOFL folder
+      - name: Get changed files
         id: changed-files-specific
         uses: tj-actions/changed-files@v34
         with:
@@ -27,7 +27,7 @@ jobs:
       - name: Move changed files to WOFL folder
         run: mv **.json ./wofl
           
-      - name: Generate wofl files
+      - name: Auto-generate wofl files
         run:  mv ./wofl/**.json **.wofl
         
 
