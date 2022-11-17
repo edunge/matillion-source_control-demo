@@ -48,7 +48,7 @@ jobs:
           target: 's3://source-control-demo/test-folder/'
           
   success:
-      needs:  deploy
+      needs:  build
 
       runs-on: ubuntu-latest
 
