@@ -1,4 +1,4 @@
-name: Source Control Demo
+name: Matillion Source Control Demo
 on: workflow_dispatch
 
 jobs:
@@ -18,13 +18,13 @@ jobs:
           files: | 
             **.json
             
-      - name: Create WOFL folder
+      - name: Create Matillion folder
         run: mkdir wofl
         
-      - name: Move changed files to WOFL folder
+      - name: Move updated files into folder
         run: mv **.json ./wofl
           
-      - name: Generate wofl files
+      - name: Transform files
         run:  mv ./wofl/**.json **.wofl
         
 
@@ -38,14 +38,14 @@ jobs:
       - name: Checkout build
         uses: actions/checkout@v3
        
-      - name: Configure METL credentials
+      - name: Configure Matillion credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: 'us-east-1'
       
-      - name: Deploy changes to METL
+      - name: Deploy changes to Matillion
         id: aws-deploy-s3
         uses: oneyedev/aws-deploy-s3@v2
         with:
@@ -61,4 +61,4 @@ jobs:
 
       steps:
         - name: Show outcome
-          run: echo 'Changes successfully deployed to METL'
+          run: echo 'Changes successfully deployed to Matillion'
