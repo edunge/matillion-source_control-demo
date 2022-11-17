@@ -11,7 +11,7 @@ jobs:
       - name: Checkout from repository
         uses: actions/checkout@v3
         
-      - name: Get changed files in the WOFL folder
+      - name: Get changed files into temp folder
         id: changed-files-specific
         uses: tj-actions/changed-files@v34
         with:
