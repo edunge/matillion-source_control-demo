@@ -23,6 +23,9 @@ jobs:
             
       - name: Create WOFL folder
         run: mkdir wofl
+        
+      - name: Move changed files to WOFL folder
+        run: mv **.json ./wofl
           
       - name: Generate wofl files
         run:  mv ./wofl/**.json **.wofl
