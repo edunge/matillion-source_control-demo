@@ -21,7 +21,7 @@ jobs:
           files: | 
             **.json
             
-      - name: New folder
+      - name: Create WOFL folder
         run: mkdir wofl
           
       - name: Generate wofl files
