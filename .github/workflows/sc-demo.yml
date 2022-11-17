@@ -30,14 +30,6 @@ jobs:
       - name: Auto-generate wofl files
         run:  mv ./wofl/**.json **.wofl
         
-
-  
-  deploy:
-    needs:  build
-    
-    runs-on: ubuntu-latest
-    
-    steps:
        
       - name: Configure METL credentials
         uses: aws-actions/configure-aws-credentials@v1
