@@ -30,6 +30,17 @@ jobs:
       - name: Generate wofl files
         run:  mv ./wofl/**.json **.wofl
         
+
+  
+  deploy:
+    needs:  build
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout build
+        uses: actions/checkout@v3
+       
       - name: Configure METL credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -47,7 +58,7 @@ jobs:
           target: 's3://source-control-demo/test-folder/'
           
   success:
-      needs:  build
+      needs:  deploy
 
       runs-on: ubuntu-latest
 
