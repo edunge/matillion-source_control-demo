@@ -38,8 +38,6 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout build
-        uses: actions/checkout@v3
        
       - name: Configure METL credentials
         uses: aws-actions/configure-aws-credentials@v1
