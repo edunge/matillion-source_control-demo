@@ -54,8 +54,8 @@ jobs:
         with:
           region: 'us-east-1'
           bucket: 'source-control-demo'
-          source: 'https://github.com/edunge/metl-sourcecontrol-demo'
-          target: 'https://source-control-demo.s3.amazonaws.com/test-folder/'
+          source: './wofl'
+          target: 's3://source-control-demo/test-folder/'
           
   success:
       needs:  deploy
