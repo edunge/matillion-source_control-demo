@@ -1,8 +1,5 @@
 name: Source Control Demo
-on: 
-  push:
-    branches:
-      - 'main'
+on: workflow_dispatch
 
 jobs:
     
