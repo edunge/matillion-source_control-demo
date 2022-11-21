@@ -25,7 +25,7 @@ jobs:
         run: mv **.json ./temp
           
       - name: Transform files
-        run:  mv ./build/**.json **.wofl
+        run:  mv ./temp/**.json **.wofl
         
 
   
