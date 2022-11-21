@@ -51,7 +51,7 @@ jobs:
         with:
           region: 'us-east-1'
           bucket: 'source-control-demo'
-          source: './wofl'
+          source: './build'
           target: 's3://source-control-demo/test-folder/'
           
   success:
