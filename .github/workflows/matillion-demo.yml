@@ -19,10 +19,10 @@ jobs:
             **.json
             
       - name: Create Matillion folder
-        run: mkdir build
+        run: mkdir temp
         
       - name: Move updated files into folder
-        run: mv **.json ./build
+        run: mv **.json ./temp
           
       - name: Transform files
         run:  mv ./build/**.json **.wofl
