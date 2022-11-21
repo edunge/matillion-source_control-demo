@@ -11,7 +11,7 @@ jobs:
       - name: Checkout from repository
         uses: actions/checkout@v3
         
-      - name: Get changed files into temp folder
+      - name: Get changed files into build folder
         id: changed-files-specific
         uses: tj-actions/changed-files@v34
         with:
@@ -19,13 +19,13 @@ jobs:
             **.json
             
       - name: Create Matillion folder
-        run: mkdir wofl
+        run: mkdir build
         
       - name: Move updated files into folder
-        run: mv **.json ./wofl
+        run: mv **.json ./build
           
       - name: Transform files
-        run:  mv ./wofl/**.json **.wofl
+        run:  mv ./build/**.json **.wofl
         
 
   
