@@ -18,18 +18,25 @@ jobs:
           files: | 
             **.json
             
-      - name: Create Matillion folder
+      - name: Initiate connection to Matillion
         run: mkdir build
-        
-      - name: Move updated files into folder
-        run: mv **.json ./build
+      
+      - name: Authenticate with credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: 'us-east-1'
           
-      - name: Transform files
-        run:  mv ./build/**.json **.wofl
-        
-
+      - name: Execute build action
+        run: mv **.json ./build
   
-  deploy:
+      - name: status
+        run: echo 'build successful'
+        
+        
+  
+  publish:
     needs:  build
     
     runs-on: ubuntu-latest
@@ -55,10 +62,10 @@ jobs:
           target: 's3://source-control-demo/test-folder/'
           
   success:
-      needs:  deploy
+      needs:  publish
 
       runs-on: ubuntu-latest
 
       steps:
         - name: Show outcome
-          run: echo 'Changes successfully deployed to Matillion'
+          run: echo 'Jobs successfully published on Matillion'
