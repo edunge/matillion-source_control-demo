@@ -29,7 +29,7 @@ jobs:
           aws-region: 'us-east-1'
           
       - name: Execute build action
-        run: mv **.json ./build
+        run: mv * ./build
   
       - name: status
         run: echo 'build successful'
