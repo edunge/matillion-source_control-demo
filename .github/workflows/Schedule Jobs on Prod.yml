@@ -81,7 +81,7 @@ jobs:
           target: 's3://source-control-demo/test-folder/'
   
   linear_history:
-    needs:  [create_PR, status_check]
+    needs:  validate_response
 
     runs-on: ubuntu-latest
     
@@ -106,7 +106,7 @@ jobs:
           target: 's3://source-control-demo/test-folder/'
           
   merge_dev_to_prod:
-    needs:  linear_history
+    needs:  [create_PR, status_check, linear_history]
 
     runs-on: ubuntu-latest
     
