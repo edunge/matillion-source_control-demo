@@ -1,4 +1,4 @@
-name: Matillion Source Control Demo
+name: Publish jobs
 on: workflow_dispatch
 
 jobs:
