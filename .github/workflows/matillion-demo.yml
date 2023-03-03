@@ -45,7 +45,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: 'us-east-1'
       
-      - name: Deploy changes to Matillion
+      - name: Publish changes to Matillion
         id: aws-deploy-s3
         uses: oneyedev/aws-deploy-s3@v2
         with:
