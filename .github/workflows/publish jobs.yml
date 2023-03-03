@@ -1,5 +1,7 @@
 name: Publish jobs
-on: workflow_dispatch
+on:
+  push:
+    branches: [ "main" ]
 
 jobs:
     
