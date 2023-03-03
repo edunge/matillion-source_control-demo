@@ -19,7 +19,7 @@ jobs:
             **.json
             
       - name: Initiate connection to Matillion
-        run: mkdir build
+        run: mkdir builds
       
       - name: Authenticate with credentials
         uses: aws-actions/configure-aws-credentials@v1
