@@ -131,7 +131,7 @@ jobs:
           target: 's3://source-control-demo/test-folder/' 
   
   schedule_job_on_Matillion:
-    needs:  linear_history
+    needs:  merge_dev_to_prod
 
     runs-on: ubuntu-latest
     
