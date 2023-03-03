@@ -62,5 +62,5 @@ jobs:
       runs-on: ubuntu-latest
 
       steps:
-        - name: Show outcome
+        - name: Show response
           run: echo 'Jobs successfully executed on Matillion'
