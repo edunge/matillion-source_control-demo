@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v3
             
       - name: Initiate connection to Matillion
-        run: mkdir builds
+        run: mkdir build
       
       - name: Authenticate with credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -22,7 +22,7 @@ jobs:
           aws-region: 'us-east-1'
           
       - name: Execute build action
-        run: mv **.json ./build
+        run: mkdir newbuild
   
       - name: status
         run: echo 'build successful'
