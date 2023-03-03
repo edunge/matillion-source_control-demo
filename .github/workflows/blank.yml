@@ -1,0 +1,66 @@
+name: Run jobs
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+    
+  validate:
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout from repository
+        uses: actions/checkout@v3
+            
+      - name: Initiate connection to Matillion
+        run: mkdir build
+      
+      - name: Authenticate with credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: 'us-east-1'
+          
+      - name: Execute build action
+        run: mkdir newbuild
+  
+      - name: status
+        run: echo 'build successful'
+        
+        
+  
+  execute:
+    needs:  validate
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout build
+        uses: actions/checkout@v3
+       
+      - name: Configure Matillion credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: 'us-east-1'
+      
+      - name: Publish changes to Matillion
+        id: aws-deploy-s3
+        uses: oneyedev/aws-deploy-s3@v2
+        with:
+          region: 'us-east-1'
+          bucket: 'source-control-demo'
+          source: './build'
+          target: 's3://source-control-demo/test-folder/'
+          
+  success:
+      needs:  execute
+
+      runs-on: ubuntu-latest
+
+      steps:
+        - name: Show outcome
+          run: echo 'Jobs successfully executed on Matillion'
